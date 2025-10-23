@@ -4,8 +4,9 @@
   "type": "module",
   "main": "src/main.js",
   "dependencies": {
-    "node-appwrite": "^13.0.0",
     "@aws-sdk/client-s3": "^3.400.0",
-    "@aws-sdk/s3-request-presigner": "^3.400.0"
+    "@aws-sdk/s3-request-presigner": "^3.400.0",
+    "appwrite": "^21.2.1",
+    "node-appwrite": "^13.0.0"
   }
 }
