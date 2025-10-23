@@ -34,11 +34,22 @@ export default async ({ req, res, log, error }) => {
 
   try {
     // Parse request body
-    let body;
+    let body = {};
+    
     try {
-      body = typeof req.body === 'string' ? JSON.parse(req.body) : req.body;
+      // Handle different body formats
+      if (req.bodyRaw) {
+        body = JSON.parse(req.bodyRaw);
+      } else if (req.body) {
+        body = typeof req.body === 'string' ? JSON.parse(req.body) : req.body;
+      } else {
+        // If no body, return empty object (for testing)
+        log('⚠️ No request body found');
+      }
     } catch (parseError) {
       error('Failed to parse request body:', parseError);
+      error('Body received:', req.body);
+      error('BodyRaw received:', req.bodyRaw);
       throw new Error('Invalid JSON in request body');
     }
 
