@@ -2,7 +2,7 @@
   "name": "upload-material-function",
   "version": "1.0.0",
   "type": "module",
-  "main": "main.js",
+  "main": "src/main.js",
   "dependencies": {
     "node-appwrite": "^13.0.0",
     "@aws-sdk/client-s3": "^3.400.0",
